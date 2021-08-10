@@ -1,0 +1,85 @@
+$font-animantion: font-size .3s;
+
+  #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      min-height: 100vh;
+      z-index: 999;
+      background: #615FA9;
+      color: #fff;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 10px;
+      margin-bottom: 5px;
+  }
+
+  #sidebar-collapse {
+    width: 20px;
+    align-self: flex-end;
+    margin-left: 5px;
+  }
+
+  .compressed #sidebar-collapse{
+    width: 100%;
+    height: 25px;
+    padding: 0;
+  }
+
+  #parentSignout{
+    margin-top: auto;
+    margin-bottom: 20px;
+  }
+
+  li.sidenav-list {
+    margin-bottom: 4px;
+  }
+
+  .dropdown-toggle {
+    width: 100%;
+  }
+
+  .sidenav-button, .sidenav-button:hover {
+    border: 1px white solid;
+  }
+
+  .sidenav-text {
+    font-size: 18px;
+    float: left;
+    -webkit-transition:$font-animantion;
+  }
+
+  .compressed .sidenav-text {
+    font-size: 11px;
+    margin-bottom: 0;
+    float: none;
+    -webkit-transition:$font-animantion;
+  }
+
+   #skip a
+  {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    color: #fff;
+    padding: 0px;
+  }
+   
+  #skip a:focus
+  {
+    left: 0px;
+    position:static;
+    width:auto;
+    height:auto;
+  }
+
+  .sidenav-number-region
+  {
+    height: 55px;
+  }

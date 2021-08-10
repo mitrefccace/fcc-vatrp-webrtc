@@ -1,0 +1,34 @@
+#webcam {
+	height: 100%;
+	position: relative;
+}
+
+#chat {
+  height: 100%;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+#selfView { 
+  width: 25%; 
+  border: 2px solid #ccc;
+  top: 0;
+  right: 0 !important;
+  position: absolute;
+  z-index: 2147483647;
+}
+#remoteView { 
+  max-width: 100%;
+  height: 100% !important;
+  width: 100%;
+  object-fit: contain;
+  background-color:#fff;
+} 
+#expandVideo{
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}

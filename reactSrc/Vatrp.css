@@ -1,0 +1,9 @@
+#toast-holder {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.toast-alert {
+  width: 350px;
+}

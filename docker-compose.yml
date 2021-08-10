@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  vatrp:
+    build: 
+      context: ./      
+    env_file:
+      - ./.vatrp.build.env
+
+    volumes:
+      - ./certs/:/usr/local/share/ca-certificates/
+      - ./public:/project/public
+      - ./reactSrc:/project/reactSrc
+      - ./electronSrc:/project/electronSrc
+      - ./config:/project/config
+      - ./dist:/project/dist
+      #- ./build:/project/build
+      #volume mounting this over the copied version so that changes to
+      #build hooks don't require a docker rebuild
+      - ./package.json:/project/package.json
+      #- ./.cache/electron:/root/.cache/electron
+      #- ./.cache/electron:/root/.cache/electron-builder

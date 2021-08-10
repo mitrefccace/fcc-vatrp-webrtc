@@ -1,0 +1,8 @@
+#chatBody {
+  height : 130px;
+  overflow-y : auto;
+}
+
+#RTTchat {
+  overflow-wrap: break-word;
+}

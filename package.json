@@ -1,0 +1,241 @@
+{
+  "name": "webrtc_vatrp",
+  "version": "v1.0.0",
+  "author": "The MITRE Corporation",
+  "description": "WebRTC VATRP version 2 test tool (Windows/MacOS) for RUE operability testing",
+  "private": true,
+  "main": "electronSrc/Main.js",
+  "homepage": "./",
+  "dependencies": {
+    "@babel/core": "7.5.5",
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "@svgr/webpack": "4.3.2",
+    "@types/jest": "24.0.18",
+    "@types/jssip": "^3.3.1",
+    "@types/lodash": "^4.14.162",
+    "@types/lodash-es": "^4.17.3",
+    "@types/node": "12.7.2",
+    "@types/react": "16.9.2",
+    "@types/react-dom": "16.9.0",
+    "@types/react-redux": "^7.1.9",
+    "@types/react-router-dom": "5.1.7",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "2.22.0",
+    "babel-eslint": "10.0.2",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "8.0.6",
+    "babel-plugin-named-asset-import": "^0.3.3",
+    "babel-preset-react-app": "^9.0.1",
+    "base-64": "^0.1.0",
+    "bootstrap": "^4.5.0",
+    "camelcase": "^5.2.0",
+    "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "circular-buffer": "^1.0.2",
+    "css-loader": "2.1.1",
+    "dav": "^1.8.0",
+    "dotenv": "^8.2.0",
+    "dotenv-expand": "^5.1.0",
+    "electron-log": "^4.0.3",
+    "electron-packager": "^14.1.1",
+    "electron-serve": "^1.1.0",
+    "electron-store": "^5.1.0",
+    "envfile": "^6.14.0",
+    "eslint": "^6.1.0",
+    "eslint-config-react-app": "^5.0.2",
+    "eslint-loader": "2.2.1",
+    "eslint-plugin-flowtype": "3.13.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.14.3",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "file-loader": "3.0.1",
+    "filereader": "^0.10.3",
+    "fs-extra": "7.0.1",
+    "html-webpack-plugin": "4.0.0-beta.5",
+    "identity-obj-proxy": "3.0.0",
+    "is-wsl": "^1.1.0",
+    "jest": "24.8.0",
+    "jest-environment-jsdom-fourteen": "0.1.0",
+    "jest-resolve": "24.8.0",
+    "jest-watch-typeahead": "0.3.1",
+    "jquery": "^3.6.0",
+    "jssip": "^3.4.6",
+    "lodash": "^4.17.20",
+    "mini-css-extract-plugin": "0.5.0",
+    "node-fetch": "^2.6.0",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "pnp-webpack-plugin": "1.5.0",
+    "portfinder": "^1.0.28",
+    "postcss-flexbugs-fixes": "4.1.0",
+    "postcss-loader": "3.0.0",
+    "postcss-normalize": "7.0.1",
+    "postcss-preset-env": "6.7.0",
+    "postcss-safe-parser": "4.0.1",
+    "react": "^16.9.0",
+    "react-app-polyfill": "^1.0.2",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-dev-utils": "^9.0.3",
+    "react-dom": "^16.9.0",
+    "react-draggable": "^4.3.1",
+    "react-router-dom": "5.2.0",
+    "react-switch": "^5.0.1",
+    "redux": "^4.0.5",
+    "redux-devtools": "^3.6.1",
+    "resolve": "1.12.0",
+    "resolve-url-loader": "3.1.0",
+    "sass-loader": "10.1.0",
+    "semver": "6.3.0",
+    "style-loader": "1.0.0",
+    "terser-webpack-plugin": "1.4.1",
+    "ts-pnp": "1.1.2",
+    "typescript": "^4.2.4",
+    "url-loader": "2.1.0",
+    "util": "^0.12.3",
+    "vcf": "^2.0.6",
+    "webpack": "4.39.1",
+    "webpack-dev-server": "3.2.1",
+    "webpack-manifest-plugin": "2.0.4",
+    "webrtc-adapter": "^7.7.1",
+    "workbox-webpack-plugin": "4.3.1"
+  },
+  "devDependencies": {
+    "@jest-runner/electron": "^2.0.2",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "electron": "10.1.2",
+    "electron-builder": "^22.7.0",
+    "electron-devtools-installer": "3.1.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "react-redux": "^7.2.1",
+    "run-script-os": "^1.0.7"
+  },
+  "scripts": {
+    "prebuild:win32": "rd /s /q build dist 2>nul & mkdir build\\src 2>nul",
+    "build:win32": "cross-env NODE_ENV=production node scripts/build.js && mkdir build\\src && robocopy electronSrc/ build/electron /S & (cross-env NODE_ENV=production electron-builder build --win -c.extraMetadata.main=build/electron/Main.js --publish never)",
+    "prebuild:darwin:linux": "rm -Rf build dist",
+    "build:darwin": "cross-env NODE_ENV=production node scripts/build.js && mkdir build/src && mkdir build/electron && cp -r ./electronSrc/* ./build/electron/ && cross-env NODE_ENV=production electron-builder build --mac --win -c.extraMetadata.main=build/electron/Main.js --publish never",
+    "build:linux": "cross-env NODE_ENV=production node scripts/build.js && mkdir build/src && mkdir build/electron && cp -r ./electronSrc/* ./build/electron/ && cross-env NODE_ENV=production electron-builder build --linux --windows -c.extraMetadata.main=build/electron/Main.js --publish never",
+    "build": "run-script-os",
+    "build-electron": "mkdir build/src && robocopy electron build/electron /S & robocopy src/shared build/src/shared /S",
+    "postbuild:linux": "cd dist/linux-unpacked && chown root chrome-sandbox && chmod 4755 chrome-sandbox && chmod +x webrtc_vatrp",
+    "postbuild:darwin": "yarn remove sass",
+    "clean": "run-script-os",
+    "clean:linux:darwin": "rm -Rf build dist",
+    "clean:win32": "del /q /s build dist",
+    "start": "cross-env NODE_ENV=development node scripts/start.js",
+    "react-build": "cross-env NODE_ENV=production node scripts/build.js",
+    "electron-build": "run-script-os",
+    "electron-build:darwin:linux": "mkdir build/src && cp -r electronSrc/* build/electron",
+    "package": "cross-env NODE_ENV=production electron-builder build --mac -c.extraMetadata.main=build/electron/Main.js --publish never",
+    "test": "cross-env NODE_ENV=test node scripts/test.js",
+    "electron-start": "cross-env NODE_ENV=development electron .",
+    "fix-electron": "node scripts/fix_electron.js",
+    "sass-compile": "sass ./scss/vatrp.scss ./public/stylesheets/vatrp.css",
+    "copy-custom": "node scripts/jssip_custom.js"
+  },
+  "build": {
+    "appId": "vatrp",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "config/**/*",
+      "electronSrc/**/*",
+      "package.json",
+      {
+        "from": "public",
+        "to": "static",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "mac": {
+      "icon": "./public/VATRP_iconScaled.icns"
+    },
+    "linux": {
+      "icon": "./public/VATRP_iconScaled.png",
+      "category": "Audio/Video"
+    },
+    "win": {
+      "icon": "./public/VATRP_iconScaled.png"
+    },
+    "extends": null
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "eslintIgnore": [
+    "janus.js"
+  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/reactSrc"
+    ],
+    "collectCoverageFrom": [
+      "reactSrc/**/*.{js,jsx,ts,tsx}",
+      "!reactSrc/**/*.d.ts"
+    ],
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/reactSrc/test/setupTests.ts"
+    ],
+    "testMatch": [
+      "<rootDir>/reactSrc/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/reactSrc/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "runner": "@jest-runner/electron",
+    "testEnvironment": "@jest-runner/electron/environment",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "modulePaths": [],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  }
+}

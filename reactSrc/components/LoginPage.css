@@ -1,0 +1,26 @@
+#vatrp-logo {
+  width: 60vmin;
+}
+
+.fileInput:focus + label {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(134, 131, 225, 0.25);
+  background-color: #8683E1;
+}
+
+.fileInput + label {
+  cursor: pointer;
+}
+
+.fileInput {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.forgotPassword {
+  color: black;
+}

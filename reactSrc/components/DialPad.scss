@@ -1,0 +1,64 @@
+$border: 2px black solid;
+$border-emphasis: 4px black solid;
+
+  .dialpad-button {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+    border: $border;
+  }
+
+  .dialpad-danger {
+    border: $border;
+    width: 30px;
+    padding: 4px 4px;
+  }
+
+  button.dialpad-button:hover{
+    border: $border-emphasis;
+    padding: 6px 12px;
+  }
+
+  button.dialpad-danger:hover {
+    border: $border-emphasis;
+    padding: 0px 0px;
+  }
+
+  button.dialpad-button:focus{
+    outline-color: #615FA9;
+    outline-style: dashed;
+    outline-width: 2px;
+  }
+
+  button.dialpad-button:active{
+    outline-color: #615FA9;
+    outline-style: solid;
+    outline-width: 2px;
+  }
+
+  .call-button:hover {
+    padding: 0px 14px !important;
+  }
+
+  input[type='tel'] {
+    speak: digits;
+  }
+
+  ::-webkit-input-placeholder {
+   color: #767676;
+   opacity: 1;
+}
+
+  .dialpad-srlabel {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }

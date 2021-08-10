@@ -1,0 +1,2 @@
+This contains the code to run the web server that serves location/contact information.
+To run, you should install screen on the server. Then launch a new screen. From there, run "sudo ~/.rbenv/shims/ruby app.rb" and disconnect from the screen with ctrl+a+d. 

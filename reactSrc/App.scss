@@ -1,0 +1,8 @@
+// https://getbootstrap.com/docs/4.0/getting-started/theming/
+
+$theme-colors: (
+  "primary": #615FA9,
+  "secondary": #8683E1
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap"
