@@ -37,6 +37,9 @@ Contains project-specific settings, including debugging configurations
 ### config
 Contains configuration files for many pieces of infrastructure our code uses including webpack, jest, and general settings
 
+### docs
+Contains the release note, docker build instructions, and a sample JSON profile
+
 ### electronSrc
 Contains javascript files related specifically to the electron process including handlers for hardware components like cameras and file access
 

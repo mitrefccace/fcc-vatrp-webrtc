@@ -1,0 +1,16 @@
+{
+	"version": 1,
+	"lifetime": 86400,
+	"phone-number": "5551234567",
+	"provider-domain": "my.server.com",
+	"credentials": [
+		{
+			"realm": "my.server.com",
+			"username": "5551234567",
+			"password": "password"
+		}
+	],
+	"contacts": "placeholder",
+	"sendLocationWithRegistration": true,
+	"rttserver": "https://my.janusserver.com:8089/janus"
+}
